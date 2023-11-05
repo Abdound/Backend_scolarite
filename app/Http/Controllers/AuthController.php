@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
@@ -15,7 +14,8 @@ class AuthController extends Controller
     public function __construct()
     {
         # By default we are using here auth:api middleware
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login','logout']]);
+        
     }
 
     /**
@@ -52,6 +52,7 @@ class AuthController extends Controller
      */
     public function logout()
     {
+       
         auth()->logout(); # This is just logout function that will destroy access token of current user
 
         return response()->json(['message' => 'Successfully logged out']);

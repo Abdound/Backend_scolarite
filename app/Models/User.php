@@ -10,9 +10,11 @@ use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 //use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements JWTSubject{
     use Notifiable;
+    use HasApiTokens;
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
