@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inscription;
+use Illuminate\Database\Eloquent\Model;
 class InscriptionController extends Controller
 {
+ 
     public function index()
     {
-        $inscrits = Inscription::all();
+        $inscrits = Inscription::with('etudiants', 'formations', 'niveau', 'anneeAcademique')->get();
         return response()->json($inscrits, 200);
     }
     public function show($id)
