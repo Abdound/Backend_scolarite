@@ -23,17 +23,17 @@ class InscriptionController extends Controller
     }
     public function update(Request $request,$id){
         $inscrits = Inscription::find($id);
-        $inscritst ->update($request->all());
+        $inscrits ->update($request->all());
         return response()->json($inscrits,200);
     }
     public function destroy(Request $request, $id){
         $inscrits = Inscription::find($id);
         
-        if ($etudiant) {
-            $etudiant->delete(); // Appel de la méthode delete()
+        if ($inscrits) {
+            $inscrits->delete(); // Appel de la méthode delete()
             return response()->json(null, 204); // Réponse avec code 204 pour indiquer la suppression
         } else {
-            return response()->json("l etudiant n'a pas été trouvée", 404); // Gérer le cas où la formation n'est pas trouvée
+            return response()->json("Not found", 404); // Gérer le cas où la formation n'est pas trouvée
         }
     }
 
