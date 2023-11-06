@@ -8,6 +8,7 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\AnneeacaController;
 use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\Etudiant_HF;
 
 
 Route::get('/etudiants', [EtudiantController::class, 'index'])->middleware('api');
@@ -52,6 +53,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/nombre_hf', [Etudiant_HF::class, 'getNombreEtudiants']);
 
 Route::group([
     'middleware' => 'api',

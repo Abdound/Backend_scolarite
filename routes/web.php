@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Etudiant;
 
 
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/dashboard', function () {
+    $sales=Etudiant::all();
+    return view('welcome',compact('sales'));
 });
