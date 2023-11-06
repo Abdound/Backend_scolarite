@@ -9,6 +9,7 @@ use App\Http\Controllers\AnneeacaController;
 use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\Etudiant_HF;
+use App\Http\Controllers\Etudiant_non_inscrits;
 
 
 Route::get('/etudiants', [EtudiantController::class, 'index'])->middleware('api');
@@ -54,6 +55,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/nombre_hf', [Etudiant_HF::class, 'getNombreEtudiants']);
+Route::get('/non_inscrit', [Etudiant_non_inscrits::class, 'index']);
 
 Route::group([
     'middleware' => 'api',
